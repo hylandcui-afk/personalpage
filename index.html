@@ -17,9 +17,7 @@
     --accent-2:  #4a6fa5;
     --rule:      #e0dbd4;
     --tag-bg:    #edf0f5;
-    --gold-bg:   #fcf7ed;
     --gold-border:#c4a44a;
-    --gold-light:#f7efd6;
     --gold-text: #8b6914;
     --gold-tag:  #f5e7c1;
     --shadow:    0 1px 3px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04);
@@ -39,11 +37,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .container {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 28px;
-  }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
 
   .header {
     padding: 56px 0 36px;
@@ -63,7 +57,8 @@
   .header .contact-row {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
     margin-top: 14px;
     font-size: .88rem;
@@ -77,6 +72,15 @@
     transition: border-color .2s;
   }
   .header .contact-row a:hover { border-color: var(--accent-2); }
+
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .85rem;
+  }
+  .icon-link svg { width: 18px; height: 18px; fill: var(--text-dim); transition: fill .2s; }
+  .icon-link:hover svg { fill: var(--accent-2); }
 
   section { margin-bottom: 42px; }
 
@@ -93,11 +97,9 @@
   .section-title::after {
     content: "";
     display: block;
-    width: 40px;
-    height: 2px;
+    width: 40px; height: 2px;
     background: var(--accent);
-    margin-top: 6px;
-    opacity: .5;
+    margin-top: 6px; opacity: .5;
   }
 
   .card {
@@ -123,159 +125,83 @@
     margin-bottom: 8px;
   }
 
-  .card-title {
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .card-meta {
-    font-size: .82rem;
-    color: var(--text-dim);
-    white-space: nowrap;
-  }
-
-  .card-sub {
-    font-size: .86rem;
-    color: var(--text-mid);
-    margin-bottom: 6px;
-  }
+  .card-title { font-size: 1.02rem; font-weight: 700; color: var(--text); }
+  .card-meta { font-size: .82rem; color: var(--text-dim); white-space: nowrap; }
+  .card-sub { font-size: .86rem; color: var(--text-mid); margin-bottom: 6px; }
 
   .card-detail {
-    font-size: .88rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-    padding-left: 0;
-    list-style: none;
+    font-size: .88rem; color: var(--text-mid);
+    line-height: 1.6; padding-left: 0; list-style: none;
   }
-
   .card-detail li {
-    position: relative;
-    padding-left: 16px;
-    margin-bottom: 4px;
+    position: relative; padding-left: 16px; margin-bottom: 4px;
   }
-
   .card-detail li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--text-dim);
-    font-size: .75rem;
-    top: 1px;
+    content: "—"; position: absolute; left: 0;
+    color: var(--text-dim); font-size: .75rem; top: 1px;
   }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 8px;
-  }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
   .tag {
-    background: var(--tag-bg);
-    color: var(--accent);
-    font-size: .76rem;
-    padding: 3px 10px;
-    border-radius: 3px;
-    letter-spacing: .02em;
+    background: var(--tag-bg); color: var(--accent);
+    font-size: .76rem; padding: 3px 10px; border-radius: 3px; letter-spacing: .02em;
   }
-
   .tag.tag-gold {
-    background: var(--gold-tag);
-    color: var(--gold-text);
-    font-weight: 500;
+    background: var(--gold-tag); color: var(--gold-text); font-weight: 500;
   }
 
-  .venue {
-    font-size: .84rem;
-    color: var(--text-dim);
-    font-style: italic;
-  }
-
+  .venue { font-size: .84rem; color: var(--text-dim); font-style: italic; }
   .venue a {
-    color: var(--accent-2);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--accent-2);
-    margin-left: 6px;
-    font-style: normal;
-    font-size: .82rem;
+    color: var(--accent-2); text-decoration: none;
+    border-bottom: 1px dotted var(--accent-2); margin-left: 6px;
+    font-style: normal; font-size: .82rem;
   }
   .venue a:hover { border-bottom-style: solid; }
 
-  /* Gold Highlight Cards */
+  /* Gold cards */
   .card.featured {
     background: linear-gradient(135deg, #fefdf8 0%, #fdf7ea 30%, #fcf7ed 100%);
-    border: 1px solid #dcc98a;
-    border-left: 4px solid var(--gold-border);
-    box-shadow: var(--shadow-gold);
-    position: relative;
+    border: 1px solid #dcc98a; border-left: 4px solid var(--gold-border);
+    box-shadow: var(--shadow-gold); position: relative;
   }
+  .card.featured .card-title { color: #3d2e0a; }
 
-  .card.featured .gold-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--gold-tag);
-    color: var(--gold-text);
-    font-size: .72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    padding: 3px 10px;
-    border-radius: 3px;
-    margin-bottom: 8px;
-    border: 1px solid #dcc98a;
-  }
-
-  .card.featured .gold-badge::before {
-    content: "◆";
-    font-size: .55rem;
-    color: var(--gold-border);
-  }
-
-  .card.featured .card-title {
-    color: #3d2e0a;
-  }
-
-  /* Blue Highlight Card (Under Review) */
+  /* Blue cards */
   .card.featured-blue {
     background: linear-gradient(135deg, #f8fafd 0%, #eaf0f8 30%, #edf2fb 100%);
-    border: 1px solid #8aa0c4;
-    border-left: 4px solid #4a6fa5;
+    border: 1px solid #8aa0c4; border-left: 4px solid #4a6fa5;
     box-shadow: 0 1px 4px rgba(74,111,165,.08), 0 4px 20px rgba(74,111,165,.10);
     position: relative;
   }
-  .card.featured-blue .card-title {
-    color: #1e3050;
-  }
-  .card.featured-blue .tag.tag-gold {
-    background: #dce6f5;
-    color: #2c3e6b;
-    border: 1px solid #8aa0c4;
+  .card.featured-blue .card-title { color: #1e3050; }
+  .card.featured-blue .tag.tag-gold { background: #dce6f5; color: #2c3e6b; border: 1px solid #8aa0c4; }
+
+  /* Research Interests block */
+  .research-block {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    font-size: .9rem;
+    color: var(--text-mid);
+    line-height: 1.75;
   }
 
   /* CFA badge */
   .cfa-badge {
-    text-align: center;
-    margin-bottom: 42px;
+    text-align: center; margin-bottom: 42px;
   }
-
   .cfa-badge .tag {
-    background: var(--gold-tag);
-    color: var(--gold-text);
-    font-size: .85rem;
-    font-weight: 600;
-    padding: 6px 16px;
-    border: 1px solid var(--gold-border);
-    display: inline-block;
+    background: var(--gold-tag); color: var(--gold-text);
+    font-size: .85rem; font-weight: 600; padding: 6px 16px;
+    border: 1px solid var(--gold-border); display: inline-block;
   }
 
   .footer {
-    text-align: center;
-    padding: 32px 0 44px;
-    font-size: .78rem;
-    color: var(--text-dim);
-    border-top: 1px solid var(--rule);
-    margin-top: 16px;
+    text-align: center; padding: 32px 0 44px;
+    font-size: .78rem; color: var(--text-dim);
+    border-top: 1px solid var(--rule); margin-top: 16px;
   }
 
   @media print {
@@ -293,8 +219,51 @@
     <div class="contact-row">
       <span><a href="mailto:hyland.cui@gmail.com">hyland.cui@gmail.com</a></span>
       <span>+86 13898606207</span>
+      <a href="https://github.com/hylandcui-afk" target="_blank" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://orcid.org/0009-0003-0749-7646" target="_blank" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.344 5.025h-3.9V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.022-3.722h-2.297z"/></svg>
+        ORCID
+      </a>
     </div>
   </header>
+
+  <section id="interests">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="research-block">
+      <p>
+        My research focuses on <strong>Empirical Asset Pricing</strong> and <strong>Financial Engineering</strong>, with an emphasis on using <strong>Machine Learning</strong> to discover market anomalies and optimize factor construction. I am also interested in <strong>Climate Finance</strong> and the interdisciplinary application of AI in finance, particularly in quantifying climate risks, analyzing textual disclosures, and their impacts on asset valuations in emerging markets.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Dongbei University of Finance &amp; Economics</span>
+        <span class="card-meta">Sep 2023 &mdash; Jul 2025</span>
+      </div>
+      <div class="card-sub">Master of Finance (MF) · Dalian, China · GPA 3.41/4.0</div>
+      <ul class="card-detail">
+        <li>Python &amp; Quantitative Investment, Derivative Pricing &amp; Trading</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Harbin Engineering University</span>
+        <span class="card-meta">Sep 2019 &mdash; Jul 2023</span>
+      </div>
+      <div class="card-sub">Bachelor of Economics · International Economics &amp; Trade · Harbin, China</div>
+      <ul class="card-detail">
+        <li>Advanced Mathematics, Linear Algebra, Probability, International Finance</li>
+      </ul>
+    </div>
+  </section>
 
   <div class="cfa-badge">
     <span class="tag">CFA Level III Candidate</span>
@@ -306,13 +275,15 @@
     <div class="card featured">
       <div class="card-header">
         <span class="card-title">Reconstruction of the Profitability Factor in China</span>
-        <span class="card-meta">2024 - 2026</span>
+        <span class="card-meta">2024 &mdash; 2026</span>
       </div>
       <div class="card-sub">
         <em>Journal of Asset Management</em> · First Author &amp; Corresponding Author
       </div>
       <div class="venue">
-        <a href="https://doi.org/10.1057/s41260-026-00450-6" target="_blank">DOI: 10.1057/s41260-026-00450-6</a> &nbsp;|&nbsp; Accepted 4 Mar 2026 &nbsp;|&nbsp; SSCI (JCR Q3) &nbsp;|&nbsp; 5-Year IF: 1.8<a href="Reconstruction%20of%20the%20Profitability%20Factor%20in%20China.pdf" target="_blank">📄 View PDF</a></div>
+        <a href="https://doi.org/10.1057/s41260-026-00450-6" target="_blank">DOI: 10.1057/s41260-026-00450-6</a> &nbsp;|&nbsp; Accepted 4 Mar 2026 &nbsp;|&nbsp; SSCI (JCR Q3) &nbsp;|&nbsp; 5-Year IF: 1.8
+        <a href="Reconstruction%20of%20the%20Profitability%20Factor%20in%20China.pdf" target="_blank">📄 View PDF</a>
+      </div>
       <ul class="card-detail">
         <li>Developed an optimized Gross Profitability (GPA) factor and a CH-5 pricing framework tailored to the Chinese A-share market, showing that algorithmic profitability pricing empirically crowds out the traditional value factor in out-of-sample tests.</li>
       </ul>
@@ -328,7 +299,7 @@
     <div class="card featured-blue">
       <div class="card-header">
         <span class="card-title">Symbolic Decarbonization and Stock Price Crash Risk: The Corporate Information Environment in the Dual-Carbon Era</span>
-        <span class="card-meta">2025 - Present</span>
+        <span class="card-meta">2025 &mdash; Present</span>
       </div>
       <div class="card-sub">
         <em>Under Review</em> | First Author | Submitted to <em>Pacific-Basin Finance Journal</em>
@@ -339,7 +310,7 @@
       </div>
       <ul class="card-detail">
         <li>Built a firm-level greenwashing measure via a two-stage residual approach that decomposes MD&amp;A green-word intensity against project-level green CAPEX. Found that symbolic decarbonization predicts future crash risk, concentrated in SOEs and industrial firms.</li>
-        <li>Distinguished two transmission channels - textual-for-financial substitution and expectation inflation - and showed neither mediates conventionally, ruling out the standard opacity mechanism.</li>
+        <li>Distinguished two transmission channels &mdash; textual-for-financial substitution and expectation inflation &mdash; and showed neither mediates conventionally, ruling out the standard opacity mechanism.</li>
       </ul>
       <div class="tags">
         <span class="tag tag-gold">Under Review</span>
@@ -354,7 +325,7 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Climate Risk Propagation Through Supply Chain Networks: A Graph Neural Network Approach to Asset Pricing</span>
-        <span class="card-meta">2025 - Present</span>
+        <span class="card-meta">2025 &mdash; Present</span>
       </div>
       <div class="card-sub"><em>Working Paper</em> | Target: <em>Review of Financial Studies</em> / <em>Journal of Financial Economics</em> / <em>Journal of Finance</em></div>
       <ul class="card-detail">
@@ -372,7 +343,7 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Does AI-Generated Investor Communication Improve Stock Pricing Efficiency?</span>
-        <span class="card-meta">2025 - Present</span>
+        <span class="card-meta">2025 &mdash; Present</span>
       </div>
       <div class="card-sub"><em>Working Paper</em></div>
       <ul class="card-detail">
