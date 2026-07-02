@@ -434,7 +434,78 @@
     </div>
   </section>
 
+  <section>
+    <h3 class="sub-title">AI Architecture Projects</h3>
 
+    <div class="card featured-teal">
+      <div class="card-header">
+        <span class="card-title">µAgent — Minimal Agent Framework</span>
+        <span class="card-meta">2026</span>
+      </div>
+      <div class="card-sub">~360 lines &middot; ReAct Loop &middot; Tool Registry &middot; Dual Memory &middot; Zero Dependencies on LangChain/AutoGPT</div>
+      <div class="venue">
+        <a href="https://github.com/hylandcui-afk/uagent" target="_blank">[GitHub] Repository</a>
+        <a href="https://github.com/hylandcui-afk/uagent/blob/master/ARCHITECTURE.md" target="_blank">[Doc] Architecture</a>
+      </div>
+      <ul class="card-detail">
+        <li><strong>ReAct Agent Loop:</strong> Pure Python implementation of Reasoning + Acting pattern — LLM observes, decides (tool call vs answer), executes, and feeds results back into context.</li>
+        <li><strong>Architecture Decisions:</strong> ReAct over Plan-Execute (adaptability) and Tree-of-Thought (cost); Tool Registry with auto JSON Schema from type hints; OpenAI-compatible LLM abstraction (20+ providers).</li>
+        <li><strong>3 Example Agents:</strong> Research Assistant (web search + synthesis), Code Reviewer (file analysis pipeline), Data Analyst (computation + visualization).</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Agent Architecture</span>
+        <span class="tag">ReAct Pattern</span>
+        <span class="tag">Tool Orchestration</span>
+        <span class="tag">Memory Design</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">PaperChat — RAG for Research Papers</span>
+        <span class="card-meta">2026</span>
+      </div>
+      <div class="card-sub">BGE-M3 Embeddings &middot; 3 Chunking Strategies &middot; Hybrid BM25 + FAISS Retrieval &middot; Streamlit UI</div>
+      <div class="venue">
+        <a href="https://github.com/hylandcui-afk/paperchat" target="_blank">[GitHub] Repository</a>
+      </div>
+      <ul class="card-detail">
+        <li><strong>Multilingual Embedding:</strong> BGE-M3 (1024-dim) chosen over OpenAI embeddings — zero cost, better Chinese performance, MTEB top-ranked. All processing local; papers never leave the machine.</li>
+        <li><strong>3 Chunking Strategies:</strong> Paragraph (double-newline), Sliding Window (fixed-size + overlap), Semantic (sentence-boundary-aware). User-selectable for different paper types.</li>
+        <li><strong>Hybrid Retrieval:</strong> BM25 for exact terminology + FAISS for conceptual similarity, fused via Reciprocal Rank Fusion. Citations grounded in source passages [1], [2-3].</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">RAG</span>
+        <span class="tag">BGE-M3</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">Hybrid Search</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">TokenViz — LLM API Proxy &amp; Cost Monitor</span>
+        <span class="card-meta">2026</span>
+      </div>
+      <div class="card-sub">FastAPI Reverse Proxy &middot; SQLite Logging &middot; Semantic Cache &middot; Real-time Dashboard</div>
+      <div class="venue">
+        <a href="https://github.com/hylandcui-afk/tokenviz" target="_blank">[GitHub] Repository</a>
+      </div>
+      <ul class="card-detail">
+        <li><strong>Transparent Proxy:</strong> Drop-in replacement — change <code>base_url</code> to <code>localhost:8800/v1</code>. Intercepts every LLM call: logs tokens, latency, and cost without any code changes.</li>
+        <li><strong>Semantic Cache:</strong> Hash-based request deduplication. Same question → instant cached response, zero LLM cost. Configurable TTL and LRU eviction.</li>
+        <li><strong>Real-time Dashboard:</strong> Static HTML + Chart.js — cost over time, per-model breakdown, P50/P99 latency, cache hit rate. Auto-refreshing. No frontend build step.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">LLMOps</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Cost Tracking</span>
+        <span class="tag">Semantic Cache</span>
+        <span class="tag">Observability</span>
+      </div>
+    </div>
+  </section>
 
 </section>
 
